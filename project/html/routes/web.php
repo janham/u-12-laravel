@@ -19,7 +19,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('contact/index', 'ContactFormController@index');
+
+Route::group(['prefix' => 'contact', 'middleware' => 'auth'], function(){ //prefixでフォルダを指定している
+    Route::get('index', 'ContactFormController@index')->name('contact.index');
+    Route::get('create', 'ContactFormController@create')->name('contact.create');
+    Route::post('store', 'ContactFormController@store')->name('contact.store');
+});
+
+// Route::get('contact/index', 'ContactFormController@index');
 
 // REST
 // Route::resource('contacts', 'ContactFormController')->only(['index', 'show']);

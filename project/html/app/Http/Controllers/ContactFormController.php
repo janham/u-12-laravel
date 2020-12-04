@@ -25,6 +25,7 @@ class ContactFormController extends Controller
     public function create()
     {
         //
+        return view('contact.create');
     }
 
     /**
@@ -36,6 +37,15 @@ class ContactFormController extends Controller
     public function store(Request $request)
     {
         //
+        $your_name = $request->input('your_name');
+        $title = $request->input('title');
+        $email = $request->input('email');
+        $url = $request->input('url');
+        $gender = $request->input('gender');
+        $age = $request->input('age');
+        $contact = $request->input('contact');
+
+        dd($your_name);
     }
 
     /**
