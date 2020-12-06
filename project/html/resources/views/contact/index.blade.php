@@ -23,15 +23,17 @@
                                 <th scope="col">your_name</th>
                                 <th scope="col">email</th>
                                 <th scope="col">created_at</th>
+                                <th scope="col">詳細</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($contacts as $contact)
                             <tr>
-                                <th>{{ $contact -> id}}</th>
-                                <td>{{ $contact -> your_name}}</td>
-                                <td>{{ $contact -> email}}</td>
-                                <td>{{ $contact -> created_at}}</td>
+                                <th>{{ $contact->id}}</th>
+                                <td>{{ $contact->your_name}}</td>
+                                <td>{{ $contact->email}}</td>
+                                <td>{{ $contact->created_at}}</td>
+                            <td><a href="{{ route('contact.show', ['id' => $contact->id]) }}">詳細をみる</a></td>
                                 <td></th>
                             </tr>
                             @endforeach
