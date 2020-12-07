@@ -24,7 +24,10 @@ class ContactFormController extends Controller
         $contacts = ContactForm::all();
 
         // クエリビルダ
-        $contacts = DB::table('contact_forms')->select('id', 'your_name', 'email', 'created_at')->get();
+        $contacts = DB::table('contact_forms')
+        ->select('id', 'your_name', 'contact', 'created_at')
+        ->orderby('created_at', 'asc')
+        ->paginate(20);
         // dd($contacts);
 
         return view('contact.index', compact('contacts'));

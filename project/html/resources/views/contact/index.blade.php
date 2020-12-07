@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Dashboard</div>
 
@@ -21,7 +21,7 @@
                             <tr>
                                 <th scope="col">id</th>
                                 <th scope="col">your_name</th>
-                                <th scope="col">email</th>
+                                <th scope="col">contact</th>
                                 <th scope="col">created_at</th>
                                 <th scope="col">詳細</th>
                             </tr>
@@ -31,7 +31,7 @@
                             <tr>
                                 <th>{{ $contact->id}}</th>
                                 <td>{{ $contact->your_name}}</td>
-                                <td>{{ $contact->email}}</td>
+                                <td>{{ $contact->contact}}</td>
                                 <td>{{ $contact->created_at}}</td>
                             <td><a href="{{ route('contact.show', ['id' => $contact->id]) }}">詳細をみる</a></td>
                                 <td></th>
@@ -39,7 +39,7 @@
                             @endforeach
                         </tbody>
                     </table>
-
+                    {{ $contacts->links() }}
                     
                     
                     
