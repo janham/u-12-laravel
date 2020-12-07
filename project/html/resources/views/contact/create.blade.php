@@ -13,6 +13,15 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
 
                     createです
                     <form method="POST" action="{{route('contact.store')}}">
@@ -30,8 +39,8 @@
                         <input type="url" name="url">
                         <br>
                         性別
-                        <input type="radio" name="gender" value="0">男性</input>
-                        <input type="radio" name="gender" value="1">女性</input>
+                        <input type="radio" name="gender" value="0">男性
+                        <input type="radio" name="gender" value="1">女性
                         <br>
                         年齢
                         <select name="age">

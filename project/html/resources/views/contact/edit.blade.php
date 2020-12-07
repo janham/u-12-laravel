@@ -15,7 +15,7 @@
                     @endif
                     
                     editです
-                    <form method="POST" action="">
+                    <form method="POST" action="{{ route('contact.update', ['id'=> $contact->id] )}}">
                     @csrf 
                         氏名
                         <input type="text" name="your_name" value="{{ $contact->your_name}}">
@@ -47,13 +47,6 @@
                         お問い合わせ内容
                         <textarea name="contact">{{ $contact->contact}}</textarea>
                         <br>
-                        
-                        
-                        
-                        
-                        {{ $contact->gender}}
-                        {{ $contact->age}}
-                        
     
                         <input class="btn btn-info" type="submit" value="更新する">
                     </form>
